@@ -1,0 +1,72 @@
+
+<!---Question 2-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Html forms</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstNameInput" required><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastNameInput" required><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="ageInput" required><br>
+
+        <label for="country">Country:</label>
+        <select id="countryInput" required>
+            <option value="">Select a country</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Croatia">Croatia</option>
+            <option value="Ghana">Ghana</option>
+            <option value="France">France</option>
+            <option value="Spain">Spain</option>
+            
+        </select><br>
+
+        <label for="picture">Picture:</label>
+        <input type="file" id="pictureInput" accept="image/*" required><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        class userFormHandler {
+            static async validateForm() {
+                const form = document.getElementById('myForm');
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return false;
+                }
+                return true;
+            }
+
+            static generateUserSentence() {
+                const firstName = document.getElementById('firstNameInput').value;
+                const lastName = document.getElementById('lastNameInput').value;
+                const age = document.getElementById('ageInput').value;
+                const country = document.getElementById('countryInput').value;
+
+                const userSentence = `My name is ${firstName} ${lastName}. I am from ${country}. I am ${age} years old.`;
+                return userSentence;
+            }
+        }
+
+        document.getElementById('myForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            if (await userFormHandler.validateForm()) {
+                const userSentence = userFormHandler.generateUserSentence();
+                alert(userSentence);
+            }
+
+            document.getElementById('myForm').reset();
+            
+        });
+    </script>
+</body>
+</html>
