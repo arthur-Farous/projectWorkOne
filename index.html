@@ -6,6 +6,7 @@
     <title>Html forms</title>
 </head>
 <body>
+    <div class="main">
     <form id="myForm">
         <label for="firstName">First Name:</label>
         <input type="text" id="firstNameInput" required><br>
@@ -26,13 +27,15 @@
             <option value="France">France</option>
             <option value="Spain">Spain</option>
             
-        </select><br>
+        </select>
+        <br>
 
         <label for="picture">Picture:</label>
         <input type="file" id="pictureInput" accept="image/*" required><br>
 
         <button type="submit">Submit</button>
     </form>
+    </div>
 
     <script>
         class userFormHandler {

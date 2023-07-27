@@ -15,7 +15,7 @@ function fizzBuzz(n) {
     }return answer;
 }
 
-console.log(fizzBuzz(n));
+console.log(fizzBuzz(15));
 
 
 //Question 3
@@ -37,6 +37,7 @@ function inAscendingOrder(arr) {
 
     return arr.slice().sort((a, b) => a - b);
   }
+  
   function inDescendingOrder(arr) {
     return arr.slice().sort((a, b) => b - a);
   }
